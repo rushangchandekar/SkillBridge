@@ -1,0 +1,127 @@
+.history-page {
+  padding: 100px 0 var(--sp-16);
+  min-height: 80vh;
+}
+
+.history-header {
+  margin-bottom: var(--sp-10);
+}
+
+.history-header .btn-ghost {
+  margin-bottom: var(--sp-4);
+}
+
+.history-page-loading,
+.history-error,
+.history-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  text-align: center;
+  gap: var(--sp-4);
+}
+
+.empty-icon {
+  font-size: 64px;
+  margin-bottom: var(--sp-2);
+}
+
+.history-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: var(--sp-6);
+}
+
+.history-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: var(--sp-6);
+  transition: all var(--transition-base);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  cursor: pointer;
+}
+
+.history-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent-mint);
+  box-shadow: var(--shadow-card), 0 0 20px var(--accent-mint-dim);
+}
+
+.history-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.history-career-title h4 {
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  margin-bottom: var(--sp-1);
+  color: var(--text-primary);
+}
+
+.history-date {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.history-score-badge {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  padding: var(--sp-2) var(--sp-3);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 64px;
+}
+
+.score-value {
+  font-size: var(--fs-lg);
+  font-weight: 800;
+  color: var(--accent-mint);
+}
+
+.score-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+}
+
+.history-card-body {
+  flex: 1;
+}
+
+.history-meta {
+  display: flex;
+  gap: var(--sp-4);
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+}
+
+.history-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--sp-4);
+  border-top: 1px solid var(--border-subtle);
+}
+
+@media (max-width: 768px) {
+  .history-grid {
+    grid-template-columns: 1fr;
+  }
+}

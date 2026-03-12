@@ -16,7 +16,7 @@ export default function Navbar({ currentSection, onNavigate }) {
         <a href="#" className="nav-logo" id="nav-logo" onClick={(e) => { e.preventDefault(); onNavigate('hero'); }}>
           <span className="logo-icon">⚡</span>
           <span className="logo-text">
-            Skill<span className="accent">Bridge</span>
+            GAP<span className="accent">0</span>
           </span>
         </a>
         <div className="nav-links">
@@ -38,6 +38,12 @@ export default function Navbar({ currentSection, onNavigate }) {
             disabled={currentSection !== 'dashboard'}
           >
             Dashboard
+          </button>
+          <button
+            className={`nav-link ${currentSection === 'history' ? 'active' : ''}`}
+            onClick={() => onNavigate('history')}
+          >
+            History
           </button>
         </div>
         <div className="nav-actions">

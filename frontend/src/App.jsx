@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import LoadingOverlay from './components/LoadingOverlay';
 import Profiler from './pages/Profiler';
 import Dashboard from './pages/Dashboard';
+import HistoryPage from './pages/HistoryPage';
 import { analyzeSkills } from './utils/api';
 import './App.css';
 
@@ -41,12 +42,18 @@ export default function App() {
 
   const handleBack = () => {
     setAnalysisResults(null);
-    setCurrentSection('profiler');
+    setCurrentSection('hero');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleResumeResults = (data) => {
     // Resume analysis returns full results from backend
+    setAnalysisResults(data);
+    setCurrentSection('dashboard');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleViewHistoricalResult = (data) => {
     setAnalysisResults(data);
     setCurrentSection('dashboard');
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -72,6 +79,12 @@ export default function App() {
         )}
         {currentSection === 'dashboard' && (
           <Dashboard results={analysisResults} onBack={handleBack} />
+        )}
+        {currentSection === 'history' && (
+          <HistoryPage 
+            onViewResults={handleViewHistoricalResult} 
+            onBack={() => setCurrentSection('hero')} 
+          />
         )}
       </main>
 
