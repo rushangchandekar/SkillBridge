@@ -1,0 +1,26 @@
+.match-ring-container {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  margin: var(--sp-3) auto;
+}
+
+.match-ring {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 12px rgba(167, 255, 131, 0.2));
+}
+
+.match-ring-progress {
+  transition: stroke-dashoffset 1.5s ease;
+}
+
+.match-pct {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: var(--fs-3xl);
+  font-weight: 900;
+  font-family: var(--font-mono);
+}
