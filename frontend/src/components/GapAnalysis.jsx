@@ -70,21 +70,40 @@ export default function GapAnalysis({ analysis }) {
                     </div>
                     {skill.resources && skill.resources.length > 0 && (
                       <div className="gap-resources">
-                        {skill.resources.slice(0, 2).map((res, rIdx) => (
-                          <a
-                            key={rIdx}
-                            href={res.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="gap-resource-link"
-                          >
-                            <span className="resource-type-icon">
-                              {res.type === 'Video' ? '🎥' : res.type === 'Course' ? '📚' : '📖'}
-                            </span>
-                            <span className="resource-title">{res.title}</span>
-                            <span className="resource-duration">{res.duration}</span>
-                          </a>
-                        ))}
+                        <div className="resources-header">
+                          <span className="resources-header-icon">🎯</span>
+                          <span className="resources-header-title">Recommended Learning</span>
+                          <span className="resources-header-badge">{skill.resources.length} resource{skill.resources.length > 1 ? 's' : ''}</span>
+                        </div>
+                        <div className="resources-grid">
+                          {skill.resources.slice(0, 3).map((res, rIdx) => {
+                            const isVideo = res.type === 'Video';
+                            const isCourse = res.type === 'Course';
+                            return (
+                              <a
+                                key={rIdx}
+                                href={res.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={`gap-resource-card ${isVideo ? 'resource-video' : isCourse ? 'resource-course' : 'resource-doc'}`}
+                              >
+                                <div className="resource-card-icon">
+                                  {isVideo ? '🎥' : isCourse ? '📚' : '📖'}
+                                </div>
+                                <div className="resource-card-body">
+                                  <span className="resource-card-type">{res.type || 'Documentation'}</span>
+                                  <span className="resource-card-title">{res.title}</span>
+                                  <span className="resource-card-duration">{res.duration}</span>
+                                </div>
+                                <div className="resource-card-arrow">
+                                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                    <path d="M7 17L17 7M17 7H7M17 7v10" />
+                                  </svg>
+                                </div>
+                              </a>
+                            );
+                          })}
+                        </div>
                       </div>
                     )}
                   </div>

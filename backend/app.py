@@ -28,7 +28,7 @@ except ImportError:
     DOCX_SUPPORT = False
     print('[!] python-docx not installed – DOCX resume parsing disabled')
 
-load_dotenv()
+load_dotenv(os.path.join(os.path.dirname(__file__), '..', '.env'))
 init_db()
 
 app = Flask(__name__, static_folder='static', static_url_path='')
