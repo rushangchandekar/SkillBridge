@@ -1,4 +1,4 @@
-# ⚡ SkillBridge — AI Skill Gap Analyzer for Employability
+# ⚡ GAP0 — AI Skill Gap Analyzer for Employability
 
 An AI-powered platform that compares a student's skills against industry job requirements and generates a personalized learning roadmap — built for hackathon-scale deployment.
 
@@ -6,7 +6,7 @@ An AI-powered platform that compares a student's skills against industry job req
 
 > Students often don't know which skills they lack for their desired careers.
 
-Only **42.6%** of Indian graduates are employable (India's Graduate Skill Index 2024). The gap between academic education and industry demands is growing. SkillBridge bridges this gap with AI-driven analysis.
+Only **42.6%** of Indian graduates are employable (India's Graduate Skill Index 2024). The gap between academic education and industry demands is growing. GAP0 bridges this gap with AI-driven analysis.
 
 ## 🧩 Modules
 

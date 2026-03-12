@@ -1,5 +1,5 @@
 """
-SkillBridge - Skill Gap Analyzer for Employability
+GAP0 - Skill Gap Analyzer for Employability
 Flask Backend Server
 """
 
@@ -11,6 +11,7 @@ import tempfile
 from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 from dotenv import load_dotenv
+from database import init_db, save_analysis, get_history, delete_history_item
 
 # Resume parsing
 try:
@@ -27,7 +28,8 @@ except ImportError:
     DOCX_SUPPORT = False
     print('[!] python-docx not installed – DOCX resume parsing disabled')
 
-load_dotenv()
+load_dotenv(os.path.join(os.path.dirname(__file__), '..', '.env'))
+init_db()
 
 app = Flask(__name__, static_folder='static', static_url_path='')
 CORS(app)
@@ -344,6 +346,13 @@ def analyze_skills():
     career_title = gap['career']['title']
     insights = get_ai_insights(user_skills, career_title, gap)
 
+    # Save to history
+    save_analysis(career_id, career['title'], gap['match_percentage'], {
+        'analysis': gap,
+        'roadmap': roadmap,
+        'insights': insights
+    })
+
     return jsonify({
         'analysis': gap,
         'roadmap': roadmap,
@@ -595,7 +604,14 @@ def analyze_resume():
     # 5. Generate AI insights
     insights = get_ai_insights(detected_skills, career['title'], gap)
 
-    # 6. Build response
+    # 6. Save to history
+    save_analysis(career_id, career['title'], gap['match_percentage'], {
+        'analysis': gap,
+        'roadmap': roadmap,
+        'insights': insights
+    })
+
+    # 7. Build response
     return jsonify({
         'resume_parsed': True,
         'detected_skills': detected_skills,
@@ -607,6 +623,26 @@ def analyze_resume():
         'roadmap': roadmap,
         'insights': insights
     })
+
+
+@app.route('/api/history', methods=['GET'])
+def fetch_history():
+    """Return the recent analysis history."""
+    try:
+        history = get_history()
+        return jsonify(history)
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
+@app.route('/api/history/<int:item_id>', methods=['DELETE'])
+def delete_history(item_id):
+    """Delete a specific history item."""
+    try:
+        delete_history_item(item_id)
+        return jsonify({'success': True})
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 
 # ============================================================================

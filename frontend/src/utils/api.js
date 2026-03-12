@@ -48,3 +48,17 @@ export async function analyzeResume(careerId, file) {
   }
   return res.json();
 }
+
+export async function fetchHistory() {
+  const res = await fetch(`${API_BASE}/history`);
+  if (!res.ok) throw new Error('Failed to fetch history');
+  return res.json();
+}
+
+export async function deleteHistoryItem(id) {
+  const res = await fetch(`${API_BASE}/history/${id}`, {
+    method: 'DELETE',
+  });
+  if (!res.ok) throw new Error('Failed to delete history item');
+  return res.json();
+}

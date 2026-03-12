@@ -8,13 +8,13 @@ export default function Footer() {
           <div className="footer-brand">
             <span className="logo-icon">⚡</span>
             <span className="logo-text">
-              Skill<span className="accent">Bridge</span>
+              GAP<span className="accent">0</span>
             </span>
           </div>
           <p className="footer-tagline">AI-powered skill gap analysis for employability</p>
         </div>
         <div className="footer-bottom">
-          <p>Built for Hackathon 2026 • Powered by Gemini AI</p>
+          <p>Built for Hackathon 2026</p>
         </div>
       </div>
     </footer>
