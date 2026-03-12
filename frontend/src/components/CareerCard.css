@@ -1,0 +1,101 @@
+.career-card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-3);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-4);
+  text-align: left;
+  transition: all var(--transition-base);
+  cursor: pointer;
+  position: relative;
+  width: 100%;
+}
+
+.career-card:hover {
+  border-color: var(--border-light);
+  background: var(--bg-card-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card);
+}
+
+.career-card-selected {
+  border-color: var(--card-accent, var(--accent-mint));
+  background: var(--bg-card-hover);
+  box-shadow: 0 0 20px rgba(167, 255, 131, 0.1);
+}
+
+.career-card-selected::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, rgba(167, 255, 131, 0.03), transparent);
+  pointer-events: none;
+}
+
+.career-card-icon {
+  font-size: 28px;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-elevated);
+  border-radius: var(--radius-md);
+}
+
+.career-card-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.career-card-title {
+  font-size: var(--fs-base);
+  font-weight: 700;
+  margin-bottom: var(--sp-2);
+  color: var(--text-primary);
+}
+
+.career-card-meta {
+  display: flex;
+  gap: var(--sp-2);
+  flex-wrap: wrap;
+  margin-bottom: var(--sp-2);
+}
+
+.career-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--fs-xs);
+  color: var(--text-secondary);
+}
+
+.career-salary {
+  font-weight: 500;
+}
+
+.career-skills {
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+}
+
+.career-card-check {
+  position: absolute;
+  top: var(--sp-3);
+  right: var(--sp-3);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--accent-mint);
+  color: var(--bg-primary);
+  font-size: var(--fs-sm);
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: scaleIn 0.2s ease;
+}

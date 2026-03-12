@@ -6,9 +6,26 @@ Flask Backend Server
 import os
 import json
 import re
+import io
+import tempfile
 from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 from dotenv import load_dotenv
+
+# Resume parsing
+try:
+    import PyPDF2
+    PDF_SUPPORT = True
+except ImportError:
+    PDF_SUPPORT = False
+    print('[!] PyPDF2 not installed – PDF resume parsing disabled')
+
+try:
+    import docx
+    DOCX_SUPPORT = True
+except ImportError:
+    DOCX_SUPPORT = False
+    print('[!] python-docx not installed – DOCX resume parsing disabled')
 
 load_dotenv()
 
@@ -18,7 +35,7 @@ CORS(app)
 # ---------------------------------------------------------------------------
 # Load the industry job-skills database once at startup
 # ---------------------------------------------------------------------------
-DATA_PATH = os.path.join(os.path.dirname(__file__), 'data', 'job_skills.json')
+DATA_PATH = os.path.join(os.path.dirname(__file__), '..', 'data', 'job_skills.json')
 with open(DATA_PATH, 'r', encoding='utf-8') as f:
     JOB_DATA = json.load(f)
 
@@ -342,6 +359,254 @@ def get_all_skills():
         for skill in career['required_skills']:
             skills_set.add(skill['name'])
     return jsonify(sorted(list(skills_set)))
+
+
+# ========================== RESUME PARSING ==================================
+
+def extract_text_from_pdf(file_stream) -> str:
+    """Extract text content from a PDF file."""
+    if not PDF_SUPPORT:
+        raise ValueError('PDF parsing not available – install PyPDF2')
+    reader = PyPDF2.PdfReader(file_stream)
+    text = ''
+    for page in reader.pages:
+        page_text = page.extract_text()
+        if page_text:
+            text += page_text + '\n'
+    return text
+
+
+def extract_text_from_docx(file_stream) -> str:
+    """Extract text content from a DOCX file."""
+    if not DOCX_SUPPORT:
+        raise ValueError('DOCX parsing not available – install python-docx')
+    doc = docx.Document(file_stream)
+    text = '\n'.join([para.text for para in doc.paragraphs if para.text.strip()])
+    return text
+
+
+def extract_resume_text(file_storage) -> str:
+    """Extract text from an uploaded resume file (PDF or DOCX)."""
+    filename = file_storage.filename.lower()
+    file_bytes = file_storage.read()
+    file_stream = io.BytesIO(file_bytes)
+
+    if filename.endswith('.pdf'):
+        return extract_text_from_pdf(file_stream)
+    elif filename.endswith('.docx'):
+        return extract_text_from_docx(file_stream)
+    elif filename.endswith('.txt'):
+        return file_bytes.decode('utf-8', errors='ignore')
+    else:
+        raise ValueError(f'Unsupported file format: {filename}. Please upload PDF, DOCX, or TXT.')
+
+
+def detect_skills_from_text(resume_text: str) -> list[dict]:
+    """
+    Detect skills mentioned in resume text by matching against our skill database.
+    Returns list of {name, proficiency} for each detected skill.
+    """
+    resume_lower = resume_text.lower()
+    all_skills = set()
+    for career in JOB_DATA['careers']:
+        for skill in career['required_skills']:
+            all_skills.add(skill['name'])
+
+    detected = []
+    for skill_name in sorted(all_skills):
+        skill_lower = skill_name.lower()
+        # Also check common variations
+        variations = [skill_lower]
+        # Handle skills with slashes like "React Native / Flutter"
+        if '/' in skill_lower:
+            variations.extend([v.strip() for v in skill_lower.split('/')])
+        # Handle parenthetical like "Deep Learning (TensorFlow/PyTorch)"
+        paren_match = re.search(r'\((.+?)\)', skill_lower)
+        if paren_match:
+            inner = paren_match.group(1)
+            variations.append(skill_lower.split('(')[0].strip())
+            variations.extend([v.strip() for v in inner.split('/')])
+
+        found = False
+        mention_count = 0
+        for var in variations:
+            if var in resume_lower:
+                found = True
+                mention_count += resume_lower.count(var)
+
+        if found:
+            # Estimate proficiency based on mention frequency and context
+            # More mentions + context words = higher estimated proficiency
+            proficiency = 40  # Base: mentioned at all
+            if mention_count >= 2:
+                proficiency = 55
+            if mention_count >= 4:
+                proficiency = 70
+            if mention_count >= 6:
+                proficiency = 80
+
+            # Check for experience indicators
+            experience_patterns = [
+                rf'\d+\s*\+?\s*years?.*{re.escape(skill_lower)}',
+                rf'{re.escape(skill_lower)}.*\d+\s*\+?\s*years?',
+                rf'expert.*{re.escape(skill_lower)}',
+                rf'{re.escape(skill_lower)}.*expert',
+                rf'advanced.*{re.escape(skill_lower)}',
+                rf'proficient.*{re.escape(skill_lower)}',
+                rf'{re.escape(skill_lower)}.*proficient',
+            ]
+            for pattern in experience_patterns:
+                if re.search(pattern, resume_lower):
+                    proficiency = min(90, proficiency + 15)
+                    break
+
+            # Check for project/work context
+            project_patterns = [
+                rf'built.*{re.escape(skill_lower)}',
+                rf'developed.*{re.escape(skill_lower)}',
+                rf'implemented.*{re.escape(skill_lower)}',
+                rf'designed.*{re.escape(skill_lower)}',
+                rf'deployed.*{re.escape(skill_lower)}',
+                rf'{re.escape(skill_lower)}.*project',
+            ]
+            for pattern in project_patterns:
+                if re.search(pattern, resume_lower):
+                    proficiency = min(90, proficiency + 10)
+                    break
+
+            detected.append({
+                'name': skill_name,
+                'proficiency': min(proficiency, 95)
+            })
+
+    return detected
+
+
+def ai_resume_analysis(resume_text: str, career_title: str) -> dict | None:
+    """
+    Use Gemini to perform deep resume analysis if available.
+    Returns dict with detected_skills and career_fit_summary.
+    """
+    if not model:
+        return None
+
+    # Get all known skills for context
+    all_skills = set()
+    for career in JOB_DATA['careers']:
+        for skill in career['required_skills']:
+            all_skills.add(skill['name'])
+
+    prompt = f"""You are an AI resume analyzer. Analyze the following resume text and extract the candidate's technical skills.
+
+For each skill detected, estimate their proficiency level (0-100) based on:
+- How often the skill is mentioned
+- Whether they have work experience with it
+- Whether they mention projects built with it
+- Their apparent seniority and role
+
+Only detect skills from this known list: {', '.join(sorted(all_skills))}
+
+Resume text:
+---
+{resume_text[:3000]}
+---
+
+Target career: {career_title}
+
+Respond ONLY in this exact JSON format (no markdown, no explanation):
+{{
+  "detected_skills": [
+    {{"name": "exact skill name from list", "proficiency": 75}}
+  ],
+  "career_fit_summary": "2-3 sentence assessment of how well this candidate fits the target career",
+  "top_strengths": ["strength 1", "strength 2"],
+  "key_gaps": ["gap 1", "gap 2"]
+}}"""
+
+    try:
+        response = model.generate_content(prompt)
+        text = response.text.strip()
+        # Clean up if wrapped in markdown code blocks
+        if text.startswith('```'):
+            text = re.sub(r'^```\w*\n?', '', text)
+            text = re.sub(r'\n?```$', '', text)
+        return json.loads(text)
+    except Exception as e:
+        print(f'Gemini resume analysis error: {e}')
+        return None
+
+
+@app.route('/api/analyze-resume', methods=['POST'])
+def analyze_resume():
+    """
+    Resume analysis endpoint.
+    Accepts multipart form data with:
+    - file: PDF, DOCX, or TXT resume file
+    - career_id: target career to compare against
+    """
+    if 'file' not in request.files:
+        return jsonify({'error': 'No file uploaded'}), 400
+
+    file = request.files['file']
+    career_id = request.form.get('career_id', '')
+
+    if not file.filename:
+        return jsonify({'error': 'No file selected'}), 400
+
+    if not career_id:
+        return jsonify({'error': 'career_id is required'}), 400
+
+    career = CAREERS.get(career_id)
+    if not career:
+        return jsonify({'error': 'Career not found'}), 404
+
+    # 1. Extract text from resume
+    try:
+        resume_text = extract_resume_text(file)
+    except ValueError as e:
+        return jsonify({'error': str(e)}), 400
+    except Exception as e:
+        return jsonify({'error': f'Failed to parse resume: {str(e)}'}), 500
+
+    if not resume_text.strip():
+        return jsonify({'error': 'Could not extract text from resume. Please try a different file format.'}), 400
+
+    # 2. Detect skills (AI-powered if available, fallback to keyword matching)
+    ai_result = ai_resume_analysis(resume_text, career['title'])
+    if ai_result and 'detected_skills' in ai_result:
+        detected_skills = ai_result['detected_skills']
+        career_fit_summary = ai_result.get('career_fit_summary', '')
+        top_strengths = ai_result.get('top_strengths', [])
+        key_gaps = ai_result.get('key_gaps', [])
+    else:
+        detected_skills = detect_skills_from_text(resume_text)
+        career_fit_summary = ''
+        top_strengths = []
+        key_gaps = []
+
+    # 3. Run gap analysis with detected skills
+    gap = compute_gap_analysis(detected_skills, career_id)
+    if 'error' in gap:
+        return jsonify(gap), 404
+
+    # 4. Build learning roadmap
+    roadmap = build_roadmap(gap)
+
+    # 5. Generate AI insights
+    insights = get_ai_insights(detected_skills, career['title'], gap)
+
+    # 6. Build response
+    return jsonify({
+        'resume_parsed': True,
+        'detected_skills': detected_skills,
+        'total_skills_found': len(detected_skills),
+        'career_fit_summary': career_fit_summary,
+        'top_strengths': top_strengths,
+        'key_gaps': key_gaps,
+        'analysis': gap,
+        'roadmap': roadmap,
+        'insights': insights
+    })
 
 
 # ============================================================================
