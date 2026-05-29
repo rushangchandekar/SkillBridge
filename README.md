@@ -1,95 +1,95 @@
 # ⚡ GAP0 — AI Skill Gap Analyzer for Employability
 
-An AI-powered platform that compares a student's skills against industry job requirements and generates a personalized learning roadmap — built for hackathon-scale deployment.
+An AI-powered career analysis platform that bridges the gap between academic capabilities and real-world industry demands. **GAP0** profiles student skills, extracts intelligence from resumes via NLP, detects skill gaps using advanced weighted matching, and generates custom, phased learning roadmaps.
 
-## 🎯 Problem Statement
+Built with a gorgeous, high-performance glassmorphic user interface and robust micro-animations.
 
-> Students often don't know which skills they lack for their desired careers.
+---
 
-Only **42.6%** of Indian graduates are employable (India's Graduate Skill Index 2024). The gap between academic education and industry demands is growing. GAP0 bridges this gap with AI-driven analysis.
+## 🎯 The Core Problem
 
-## 🧩 Modules
+> **Only 42.6% of Indian graduates are employable** *(Graduate Skill Index 2024)*.
 
-| # | Module | Description |
-|---|--------|-------------|
-| 1 | **Student Skill Profiling** | Interactive career selection + skill self-assessment with proficiency sliders |
-| 2 | **Industry Job Skill Database** | 10 career paths × 12 skills each = 120+ tracked skills with importance weights |
-| 3 | **AI Skill Gap Detection** | Weighted matching algorithm comparing user skills vs. industry requirements |
-| 4 | **Personalized Learning Recommendations** | Phased learning roadmap with 50+ curated resources (MDN, Coursera, freeCodeCamp, etc.) |
-| 5 | **Career Progress Dashboard** | Match score ring, gap visualization, and AI-generated career insights |
+Traditional academic degrees often leave students unaware of the specific, rapidly evolving technology stacks demanded by modern industry. **GAP0** solves this by providing immediate, precise alignment metrics and personal, actionable study routes.
 
-## 🚀 Quick Start
+---
 
-### Prerequisites
-- Python 3.10+
-- pip
+## 🚀 Key Modules & Features
 
-### Installation
+1. **Student Skill Profiling**: Dynamic career-path selector (10 paths) combined with intuitive capability sliders.
+2. **AI Resume Parser**: Direct parsing of PDF and DOCX files using Gemini NLP to extract semantic skillset matrices.
+3. **High-Precision Gap Analytics**: Custom mathematical matching comparing user capabilities against real industry weights.
+4. **Interactive Dashboard**: Match score visualization, modular radar charts, and AI-driven growth insights.
+5. **Personalized Learning Roadmaps**: Actionable, phased learning schedules populated with 50+ curated resources.
+6. **Career History Log**: Local secure persistence allowing students to track their growth curves over time.
 
+---
+
+## 🛠️ Advanced Tech Stack
+
+| Layer | Technology | Description |
+|-------|------------|-------------|
+| **Frontend UI** | **React 19 + Vite** | Ultra-responsive cinematic layout, vanilla HSL CSS design system, and custom rotating concentric sparkle animations. |
+| **Backend API** | **Python Flask** | Restful service layer managing file ingestion, database routing, and semantic AI queries. |
+| **AI Ingestion** | **Google Gemini AI API** | Generative Reasoning Engine reading resumes and outputting structured JSON analyses. |
+| **Persistence** | **SQLite3** | Lightweight local database storing audit trials and analytical history. |
+
+---
+
+## 📁 Repository Structure
+
+```
+Gap0/
+├── backend/
+│   ├── main.py             # Flask REST API server
+│   ├── database.py         # SQLite persistence configurations
+│   ├── requirements.txt    # Production Python libraries
+│   └── Procfile            # Deployment script for web servers
+├── frontend/
+│   ├── src/
+│   │   ├── components/     # UI elements (Hero, Navbar, ResumeUpload)
+│   │   ├── pages/          # Full layouts (Dashboard, Profiler, History)
+│   │   └── utils/          # Client API fetch wrappers
+│   ├── package.json        # Frontend NPM configurations
+│   ├── vercel.json         # Vercel Production Reverse Proxy Config
+│   └── vite.config.js      # Dev proxy configurations
+└── README.md
+```
+
+---
+
+## 💻 Quick Start & Running Locally
+
+### 1. Fire Up the Flask Backend
 ```bash
-# Clone and navigate to the project
-cd Raisoni
+# Navigate to the backend folder
+cd backend
 
 # Install dependencies
 pip install -r requirements.txt
 
-# (Optional) Add your Gemini API key for AI-powered insights
-# Copy .env.example to .env and add your key
-copy .env.example .env
+# (Optional) Add your API key in a .env file
+# GEMINI_API_KEY=your_gemini_api_key_here
 
-# Run the server
-python app.py
+# Run the Flask development server
+python main.py
 ```
+*Backend runs on `http://localhost:5000`*
 
-Open **http://localhost:5000** in your browser.
+### 2. Start the React Frontend
+```bash
+# Navigate to the frontend folder
+cd ../frontend
 
-### With Gemini AI (Optional)
+# Install dependencies
+npm install
 
-1. Get a free API key from [Google AI Studio](https://aistudio.google.com/apikey)
-2. Create a `.env` file: `GEMINI_API_KEY=your_key_here`
-3. Restart the server — AI insights will now be personalized by Gemini
-
-## 🛠️ Tech Stack
-
-| Layer | Technology |
-|-------|-----------|
-| **Frontend** | Vanilla HTML5, CSS3, JavaScript (No framework needed) |
-| **Backend** | Python Flask |
-| **AI Engine** | Google Gemini API (optional), Built-in fallback engine |
-| **Database** | JSON-based skill database (no DB setup required) |
-| **Design** | Glassmorphic dark-mode UI, CSS custom properties |
-
-## 📁 Project Structure
-
+# Run the development compiler
+npm run dev
 ```
-Raisoni/
-├── app.py                  # Flask backend server
-├── requirements.txt        # Python dependencies
-├── .env.example            # Environment config template
-├── data/
-│   └── job_skills.json     # Industry job skills database (10 careers, 120+ skills)
-├── static/
-│   ├── index.html          # Main SPA page
-│   ├── css/
-│   │   └── style.css       # Complete design system
-│   └── js/
-│       └── app.js          # Frontend application logic
-└── README.md
-```
+*Frontend compiled live at `http://localhost:5173`*
 
-## 📊 Supported Career Paths
+---
 
-- 🎨 Frontend Developer
-- ⚙️ Backend Developer
-- 📊 Data Scientist
-- 🤖 ML Engineer
-- 🌐 Full Stack Developer
-- 🔧 DevOps Engineer
-- ✏️ UI/UX Designer
-- 🔒 Cybersecurity Analyst
-- 📱 Mobile App Developer
-- ☁️ Cloud Solutions Architect
-
-## 👥 Team
-
-Built for Hackathon 2026 — G.H. Raisoni College of Engineering
+## 👥 Authors & Team
+Built with ❤️ for **Hackathon 2026** — G.H. Raisoni College of Engineering.
