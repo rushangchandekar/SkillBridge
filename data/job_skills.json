@@ -1,0 +1,408 @@
+{
+  "careers": [
+    {
+      "id": "frontend_developer",
+      "title": "Frontend Developer",
+      "category": "Software Engineering",
+      "description": "Build user interfaces and interactive web applications",
+      "avg_salary_inr": "6-15 LPA",
+      "demand": "High",
+      "required_skills": [
+        { "name": "HTML5", "category": "Core", "importance": "critical", "proficiency_needed": 90 },
+        { "name": "CSS3", "category": "Core", "importance": "critical", "proficiency_needed": 85 },
+        { "name": "JavaScript", "category": "Core", "importance": "critical", "proficiency_needed": 90 },
+        { "name": "React.js", "category": "Framework", "importance": "critical", "proficiency_needed": 80 },
+        { "name": "TypeScript", "category": "Language", "importance": "important", "proficiency_needed": 70 },
+        { "name": "Git", "category": "Tool", "importance": "important", "proficiency_needed": 75 },
+        { "name": "REST APIs", "category": "Concept", "importance": "important", "proficiency_needed": 70 },
+        { "name": "Responsive Design", "category": "Concept", "importance": "critical", "proficiency_needed": 85 },
+        { "name": "Tailwind CSS", "category": "Framework", "importance": "nice-to-have", "proficiency_needed": 60 },
+        { "name": "Next.js", "category": "Framework", "importance": "nice-to-have", "proficiency_needed": 60 },
+        { "name": "Testing (Jest)", "category": "Tool", "importance": "important", "proficiency_needed": 60 },
+        { "name": "Webpack/Vite", "category": "Tool", "importance": "nice-to-have", "proficiency_needed": 50 }
+      ]
+    },
+    {
+      "id": "backend_developer",
+      "title": "Backend Developer",
+      "category": "Software Engineering",
+      "description": "Design and build server-side logic, APIs, and databases",
+      "avg_salary_inr": "7-18 LPA",
+      "demand": "High",
+      "required_skills": [
+        { "name": "Python", "category": "Language", "importance": "critical", "proficiency_needed": 85 },
+        { "name": "Node.js", "category": "Runtime", "importance": "important", "proficiency_needed": 75 },
+        { "name": "SQL", "category": "Database", "importance": "critical", "proficiency_needed": 80 },
+        { "name": "REST APIs", "category": "Concept", "importance": "critical", "proficiency_needed": 85 },
+        { "name": "Git", "category": "Tool", "importance": "important", "proficiency_needed": 75 },
+        { "name": "Django/Flask", "category": "Framework", "importance": "important", "proficiency_needed": 75 },
+        { "name": "PostgreSQL", "category": "Database", "importance": "important", "proficiency_needed": 70 },
+        { "name": "MongoDB", "category": "Database", "importance": "nice-to-have", "proficiency_needed": 60 },
+        { "name": "Docker", "category": "Tool", "importance": "important", "proficiency_needed": 65 },
+        { "name": "Redis", "category": "Database", "importance": "nice-to-have", "proficiency_needed": 50 },
+        { "name": "Authentication (JWT/OAuth)", "category": "Concept", "importance": "important", "proficiency_needed": 70 },
+        { "name": "System Design", "category": "Concept", "importance": "important", "proficiency_needed": 65 }
+      ]
+    },
+    {
+      "id": "data_scientist",
+      "title": "Data Scientist",
+      "category": "Data & AI",
+      "description": "Extract insights from data using statistics and machine learning",
+      "avg_salary_inr": "8-22 LPA",
+      "demand": "Very High",
+      "required_skills": [
+        { "name": "Python", "category": "Language", "importance": "critical", "proficiency_needed": 90 },
+        { "name": "Statistics & Probability", "category": "Concept", "importance": "critical", "proficiency_needed": 85 },
+        { "name": "Machine Learning", "category": "Concept", "importance": "critical", "proficiency_needed": 80 },
+        { "name": "Pandas", "category": "Library", "importance": "critical", "proficiency_needed": 85 },
+        { "name": "NumPy", "category": "Library", "importance": "critical", "proficiency_needed": 80 },
+        { "name": "Scikit-learn", "category": "Library", "importance": "critical", "proficiency_needed": 75 },
+        { "name": "SQL", "category": "Database", "importance": "important", "proficiency_needed": 75 },
+        { "name": "Data Visualization (Matplotlib/Seaborn)", "category": "Tool", "importance": "important", "proficiency_needed": 70 },
+        { "name": "Deep Learning (TensorFlow/PyTorch)", "category": "Framework", "importance": "important", "proficiency_needed": 65 },
+        { "name": "NLP", "category": "Concept", "importance": "nice-to-have", "proficiency_needed": 60 },
+        { "name": "Big Data (Spark)", "category": "Tool", "importance": "nice-to-have", "proficiency_needed": 50 },
+        { "name": "Feature Engineering", "category": "Concept", "importance": "important", "proficiency_needed": 70 }
+      ]
+    },
+    {
+      "id": "ml_engineer",
+      "title": "ML Engineer",
+      "category": "Data & AI",
+      "description": "Deploy and optimize machine learning models in production",
+      "avg_salary_inr": "10-28 LPA",
+      "demand": "Very High",
+      "required_skills": [
+        { "name": "Python", "category": "Language", "importance": "critical", "proficiency_needed": 90 },
+        { "name": "Machine Learning", "category": "Concept", "importance": "critical", "proficiency_needed": 90 },
+        { "name": "Deep Learning (TensorFlow/PyTorch)", "category": "Framework", "importance": "critical", "proficiency_needed": 85 },
+        { "name": "MLOps", "category": "Concept", "importance": "critical", "proficiency_needed": 75 },
+        { "name": "Docker", "category": "Tool", "importance": "important", "proficiency_needed": 75 },
+        { "name": "Cloud (AWS/GCP/Azure)", "category": "Platform", "importance": "important", "proficiency_needed": 70 },
+        { "name": "Data Pipelines", "category": "Concept", "importance": "important", "proficiency_needed": 70 },
+        { "name": "SQL", "category": "Database", "importance": "important", "proficiency_needed": 70 },
+        { "name": "REST APIs", "category": "Concept", "importance": "important", "proficiency_needed": 70 },
+        { "name": "Git", "category": "Tool", "importance": "important", "proficiency_needed": 75 },
+        { "name": "Kubernetes", "category": "Tool", "importance": "nice-to-have", "proficiency_needed": 55 },
+        { "name": "Model Optimization", "category": "Concept", "importance": "important", "proficiency_needed": 65 }
+      ]
+    },
+    {
+      "id": "fullstack_developer",
+      "title": "Full Stack Developer",
+      "category": "Software Engineering",
+      "description": "Build complete web applications from frontend to backend",
+      "avg_salary_inr": "8-20 LPA",
+      "demand": "Very High",
+      "required_skills": [
+        { "name": "HTML5", "category": "Core", "importance": "critical", "proficiency_needed": 85 },
+        { "name": "CSS3", "category": "Core", "importance": "critical", "proficiency_needed": 80 },
+        { "name": "JavaScript", "category": "Core", "importance": "critical", "proficiency_needed": 90 },
+        { "name": "React.js", "category": "Framework", "importance": "critical", "proficiency_needed": 80 },
+        { "name": "Node.js", "category": "Runtime", "importance": "critical", "proficiency_needed": 80 },
+        { "name": "SQL", "category": "Database", "importance": "important", "proficiency_needed": 75 },
+        { "name": "MongoDB", "category": "Database", "importance": "important", "proficiency_needed": 70 },
+        { "name": "REST APIs", "category": "Concept", "importance": "critical", "proficiency_needed": 85 },
+        { "name": "Git", "category": "Tool", "importance": "important", "proficiency_needed": 75 },
+        { "name": "Docker", "category": "Tool", "importance": "nice-to-have", "proficiency_needed": 55 },
+        { "name": "TypeScript", "category": "Language", "importance": "important", "proficiency_needed": 65 },
+        { "name": "Authentication (JWT/OAuth)", "category": "Concept", "importance": "important", "proficiency_needed": 70 }
+      ]
+    },
+    {
+      "id": "devops_engineer",
+      "title": "DevOps Engineer",
+      "category": "Infrastructure",
+      "description": "Automate infrastructure, CI/CD pipelines, and cloud deployments",
+      "avg_salary_inr": "8-25 LPA",
+      "demand": "High",
+      "required_skills": [
+        { "name": "Linux", "category": "OS", "importance": "critical", "proficiency_needed": 85 },
+        { "name": "Docker", "category": "Tool", "importance": "critical", "proficiency_needed": 85 },
+        { "name": "Kubernetes", "category": "Tool", "importance": "critical", "proficiency_needed": 80 },
+        { "name": "CI/CD (Jenkins/GitHub Actions)", "category": "Tool", "importance": "critical", "proficiency_needed": 80 },
+        { "name": "Cloud (AWS/GCP/Azure)", "category": "Platform", "importance": "critical", "proficiency_needed": 80 },
+        { "name": "Terraform", "category": "Tool", "importance": "important", "proficiency_needed": 70 },
+        { "name": "Python/Bash Scripting", "category": "Language", "importance": "important", "proficiency_needed": 75 },
+        { "name": "Git", "category": "Tool", "importance": "important", "proficiency_needed": 80 },
+        { "name": "Monitoring (Prometheus/Grafana)", "category": "Tool", "importance": "important", "proficiency_needed": 65 },
+        { "name": "Networking", "category": "Concept", "importance": "important", "proficiency_needed": 70 },
+        { "name": "Ansible", "category": "Tool", "importance": "nice-to-have", "proficiency_needed": 60 },
+        { "name": "Security Best Practices", "category": "Concept", "importance": "important", "proficiency_needed": 65 }
+      ]
+    },
+    {
+      "id": "ui_ux_designer",
+      "title": "UI/UX Designer",
+      "category": "Design",
+      "description": "Design intuitive and beautiful user experiences and interfaces",
+      "avg_salary_inr": "5-18 LPA",
+      "demand": "High",
+      "required_skills": [
+        { "name": "Figma", "category": "Tool", "importance": "critical", "proficiency_needed": 90 },
+        { "name": "User Research", "category": "Concept", "importance": "critical", "proficiency_needed": 80 },
+        { "name": "Wireframing & Prototyping", "category": "Concept", "importance": "critical", "proficiency_needed": 85 },
+        { "name": "Visual Design", "category": "Concept", "importance": "critical", "proficiency_needed": 85 },
+        { "name": "Design Systems", "category": "Concept", "importance": "important", "proficiency_needed": 75 },
+        { "name": "Typography", "category": "Concept", "importance": "important", "proficiency_needed": 70 },
+        { "name": "Color Theory", "category": "Concept", "importance": "important", "proficiency_needed": 70 },
+        { "name": "Usability Testing", "category": "Concept", "importance": "important", "proficiency_needed": 70 },
+        { "name": "HTML/CSS Basics", "category": "Core", "importance": "nice-to-have", "proficiency_needed": 50 },
+        { "name": "Interaction Design", "category": "Concept", "importance": "important", "proficiency_needed": 75 },
+        { "name": "Adobe Creative Suite", "category": "Tool", "importance": "nice-to-have", "proficiency_needed": 55 },
+        { "name": "Accessibility (WCAG)", "category": "Concept", "importance": "important", "proficiency_needed": 65 }
+      ]
+    },
+    {
+      "id": "cybersecurity_analyst",
+      "title": "Cybersecurity Analyst",
+      "category": "Security",
+      "description": "Protect systems and networks from security threats and vulnerabilities",
+      "avg_salary_inr": "6-20 LPA",
+      "demand": "Very High",
+      "required_skills": [
+        { "name": "Networking (TCP/IP, DNS, HTTP)", "category": "Concept", "importance": "critical", "proficiency_needed": 85 },
+        { "name": "Linux", "category": "OS", "importance": "critical", "proficiency_needed": 80 },
+        { "name": "Security Fundamentals (CIA Triad)", "category": "Concept", "importance": "critical", "proficiency_needed": 90 },
+        { "name": "Penetration Testing", "category": "Concept", "importance": "important", "proficiency_needed": 75 },
+        { "name": "SIEM Tools", "category": "Tool", "importance": "important", "proficiency_needed": 70 },
+        { "name": "Firewalls & IDS/IPS", "category": "Tool", "importance": "important", "proficiency_needed": 75 },
+        { "name": "Python/Bash Scripting", "category": "Language", "importance": "important", "proficiency_needed": 65 },
+        { "name": "Cryptography", "category": "Concept", "importance": "important", "proficiency_needed": 70 },
+        { "name": "Incident Response", "category": "Concept", "importance": "important", "proficiency_needed": 70 },
+        { "name": "Cloud Security", "category": "Concept", "importance": "nice-to-have", "proficiency_needed": 60 },
+        { "name": "Compliance (ISO 27001, GDPR)", "category": "Concept", "importance": "nice-to-have", "proficiency_needed": 55 },
+        { "name": "Vulnerability Assessment", "category": "Concept", "importance": "critical", "proficiency_needed": 80 }
+      ]
+    },
+    {
+      "id": "mobile_developer",
+      "title": "Mobile App Developer",
+      "category": "Software Engineering",
+      "description": "Build native and cross-platform mobile applications",
+      "avg_salary_inr": "6-18 LPA",
+      "demand": "High",
+      "required_skills": [
+        { "name": "React Native / Flutter", "category": "Framework", "importance": "critical", "proficiency_needed": 85 },
+        { "name": "JavaScript/Dart", "category": "Language", "importance": "critical", "proficiency_needed": 85 },
+        { "name": "REST APIs", "category": "Concept", "importance": "critical", "proficiency_needed": 80 },
+        { "name": "Git", "category": "Tool", "importance": "important", "proficiency_needed": 75 },
+        { "name": "State Management", "category": "Concept", "importance": "important", "proficiency_needed": 75 },
+        { "name": "UI/UX Principles", "category": "Concept", "importance": "important", "proficiency_needed": 70 },
+        { "name": "Firebase", "category": "Platform", "importance": "important", "proficiency_needed": 65 },
+        { "name": "App Store Deployment", "category": "Tool", "importance": "important", "proficiency_needed": 65 },
+        { "name": "Testing (Unit/Integration)", "category": "Tool", "importance": "important", "proficiency_needed": 60 },
+        { "name": "Performance Optimization", "category": "Concept", "importance": "nice-to-have", "proficiency_needed": 60 },
+        { "name": "Push Notifications", "category": "Concept", "importance": "nice-to-have", "proficiency_needed": 50 },
+        { "name": "Offline Storage", "category": "Concept", "importance": "nice-to-have", "proficiency_needed": 55 }
+      ]
+    },
+    {
+      "id": "cloud_architect",
+      "title": "Cloud Solutions Architect",
+      "category": "Infrastructure",
+      "description": "Design scalable, resilient cloud infrastructure solutions",
+      "avg_salary_inr": "15-40 LPA",
+      "demand": "Very High",
+      "required_skills": [
+        { "name": "Cloud (AWS/GCP/Azure)", "category": "Platform", "importance": "critical", "proficiency_needed": 90 },
+        { "name": "System Design", "category": "Concept", "importance": "critical", "proficiency_needed": 90 },
+        { "name": "Networking", "category": "Concept", "importance": "critical", "proficiency_needed": 80 },
+        { "name": "Docker", "category": "Tool", "importance": "important", "proficiency_needed": 80 },
+        { "name": "Kubernetes", "category": "Tool", "importance": "important", "proficiency_needed": 75 },
+        { "name": "Terraform / CloudFormation", "category": "Tool", "importance": "important", "proficiency_needed": 75 },
+        { "name": "Security Best Practices", "category": "Concept", "importance": "critical", "proficiency_needed": 80 },
+        { "name": "Microservices Architecture", "category": "Concept", "importance": "important", "proficiency_needed": 75 },
+        { "name": "Database Design", "category": "Concept", "importance": "important", "proficiency_needed": 70 },
+        { "name": "CI/CD Pipelines", "category": "Tool", "importance": "important", "proficiency_needed": 70 },
+        { "name": "Cost Optimization", "category": "Concept", "importance": "important", "proficiency_needed": 65 },
+        { "name": "Serverless (Lambda/Functions)", "category": "Platform", "importance": "nice-to-have", "proficiency_needed": 60 }
+      ]
+    }
+  ],
+  "learning_resources": {
+    "HTML5": [
+      { "title": "MDN Web Docs - HTML", "url": "https://developer.mozilla.org/en-US/docs/Web/HTML", "type": "Documentation", "duration": "2-4 weeks" },
+      { "title": "freeCodeCamp Responsive Web Design", "url": "https://www.freecodecamp.org/learn/2022/responsive-web-design/", "type": "Course", "duration": "4 weeks" }
+    ],
+    "CSS3": [
+      { "title": "CSS-Tricks Complete Guide", "url": "https://css-tricks.com/guides/", "type": "Guide", "duration": "3-5 weeks" },
+      { "title": "Kevin Powell YouTube Channel", "url": "https://www.youtube.com/@KevinPowell", "type": "Video", "duration": "Ongoing" }
+    ],
+    "JavaScript": [
+      { "title": "JavaScript.info", "url": "https://javascript.info/", "type": "Tutorial", "duration": "6-8 weeks" },
+      { "title": "Namaste JavaScript by Akshay Saini", "url": "https://www.youtube.com/playlist?list=PLlasXeu85E9cQ32gLCvAvr9vNaUccPVNP", "type": "Video", "duration": "4 weeks" }
+    ],
+    "React.js": [
+      { "title": "Official React Docs", "url": "https://react.dev/learn", "type": "Documentation", "duration": "4-6 weeks" },
+      { "title": "Full React Course by freeCodeCamp", "url": "https://www.youtube.com/watch?v=bMknfKXIFA8", "type": "Video", "duration": "12 hours" }
+    ],
+    "Python": [
+      { "title": "Python Official Tutorial", "url": "https://docs.python.org/3/tutorial/", "type": "Documentation", "duration": "3-4 weeks" },
+      { "title": "100 Days of Code by Angela Yu", "url": "https://www.udemy.com/course/100-days-of-code/", "type": "Course", "duration": "14 weeks" }
+    ],
+    "Machine Learning": [
+      { "title": "Andrew Ng's ML Course (Coursera)", "url": "https://www.coursera.org/learn/machine-learning", "type": "Course", "duration": "11 weeks" },
+      { "title": "Hands-On ML Book", "url": "https://www.oreilly.com/library/view/hands-on-machine-learning/9781098125967/", "type": "Book", "duration": "12-16 weeks" }
+    ],
+    "SQL": [
+      { "title": "SQLZoo Interactive Tutorial", "url": "https://sqlzoo.net/", "type": "Tutorial", "duration": "2-3 weeks" },
+      { "title": "Mode Analytics SQL Tutorial", "url": "https://mode.com/sql-tutorial", "type": "Tutorial", "duration": "3 weeks" }
+    ],
+    "Git": [
+      { "title": "Git Official Documentation", "url": "https://git-scm.com/doc", "type": "Documentation", "duration": "1-2 weeks" },
+      { "title": "Learn Git Branching", "url": "https://learngitbranching.js.org/", "type": "Interactive", "duration": "1 week" }
+    ],
+    "Docker": [
+      { "title": "Docker Official Get Started", "url": "https://docs.docker.com/get-started/", "type": "Documentation", "duration": "2-3 weeks" },
+      { "title": "TechWorld with Nana Docker Course", "url": "https://www.youtube.com/watch?v=3c-iBn73dDE", "type": "Video", "duration": "4 hours" }
+    ],
+    "Node.js": [
+      { "title": "Node.js Official Docs", "url": "https://nodejs.org/en/docs/guides", "type": "Documentation", "duration": "3-4 weeks" },
+      { "title": "The Odin Project Node Path", "url": "https://www.theodinproject.com/paths/full-stack-javascript/courses/nodejs", "type": "Course", "duration": "6-8 weeks" }
+    ],
+    "TypeScript": [
+      { "title": "TypeScript Official Handbook", "url": "https://www.typescriptlang.org/docs/handbook/", "type": "Documentation", "duration": "2-3 weeks" },
+      { "title": "Total TypeScript by Matt Pocock", "url": "https://www.totaltypescript.com/", "type": "Course", "duration": "4-6 weeks" }
+    ],
+    "REST APIs": [
+      { "title": "RESTful API Design Guide", "url": "https://restfulapi.net/", "type": "Guide", "duration": "1-2 weeks" },
+      { "title": "Postman Learning Center", "url": "https://learning.postman.com/", "type": "Tutorial", "duration": "1 week" }
+    ],
+    "Figma": [
+      { "title": "Figma Official Tutorials", "url": "https://help.figma.com/hc/en-us/categories/360002042553", "type": "Tutorial", "duration": "2-3 weeks" },
+      { "title": "Figma UI Design Course", "url": "https://www.youtube.com/watch?v=FTFaQWZBqQ8", "type": "Video", "duration": "11 hours" }
+    ],
+    "Kubernetes": [
+      { "title": "Kubernetes Official Tutorials", "url": "https://kubernetes.io/docs/tutorials/", "type": "Documentation", "duration": "4-6 weeks" },
+      { "title": "KodeKloud CKA Course", "url": "https://kodekloud.com/courses/certified-kubernetes-administrator-cka/", "type": "Course", "duration": "6-8 weeks" }
+    ],
+    "Linux": [
+      { "title": "Linux Journey", "url": "https://linuxjourney.com/", "type": "Tutorial", "duration": "3-4 weeks" },
+      { "title": "The Linux Command Line Book", "url": "https://linuxcommand.org/tlcl.php", "type": "Book", "duration": "4-6 weeks" }
+    ],
+    "Deep Learning (TensorFlow/PyTorch)": [
+      { "title": "Deep Learning Specialization (Andrew Ng)", "url": "https://www.coursera.org/specializations/deep-learning", "type": "Course", "duration": "16 weeks" },
+      { "title": "PyTorch Official Tutorials", "url": "https://pytorch.org/tutorials/", "type": "Tutorial", "duration": "4-6 weeks" }
+    ],
+    "Statistics & Probability": [
+      { "title": "Khan Academy Statistics", "url": "https://www.khanacademy.org/math/statistics-probability", "type": "Course", "duration": "6-8 weeks" },
+      { "title": "StatQuest with Josh Starmer", "url": "https://www.youtube.com/@statquest", "type": "Video", "duration": "Ongoing" }
+    ],
+    "Pandas": [
+      { "title": "Pandas Official Documentation", "url": "https://pandas.pydata.org/docs/getting_started/index.html", "type": "Documentation", "duration": "2-3 weeks" },
+      { "title": "Kaggle Pandas Course", "url": "https://www.kaggle.com/learn/pandas", "type": "Course", "duration": "4 hours" }
+    ],
+    "NumPy": [
+      { "title": "NumPy Official Tutorial", "url": "https://numpy.org/doc/stable/user/absolute_beginners.html", "type": "Documentation", "duration": "1-2 weeks" }
+    ],
+    "Scikit-learn": [
+      { "title": "Scikit-learn Official Tutorial", "url": "https://scikit-learn.org/stable/tutorial/index.html", "type": "Documentation", "duration": "3-4 weeks" }
+    ],
+    "Cloud (AWS/GCP/Azure)": [
+      { "title": "AWS Cloud Practitioner Essentials", "url": "https://aws.amazon.com/training/digital/aws-cloud-practitioner-essentials/", "type": "Course", "duration": "6 hours" },
+      { "title": "Google Cloud Skills Boost", "url": "https://www.cloudskillsboost.google/", "type": "Platform", "duration": "Ongoing" }
+    ],
+    "System Design": [
+      { "title": "System Design Primer (GitHub)", "url": "https://github.com/donnemartin/system-design-primer", "type": "Guide", "duration": "Ongoing" },
+      { "title": "Gaurav Sen System Design YouTube", "url": "https://www.youtube.com/@gaborsen", "type": "Video", "duration": "Ongoing" }
+    ],
+    "Responsive Design": [
+      { "title": "MDN Responsive Design Guide", "url": "https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design", "type": "Documentation", "duration": "1-2 weeks" }
+    ],
+    "Django/Flask": [
+      { "title": "Django Official Tutorial", "url": "https://docs.djangoproject.com/en/5.0/intro/tutorial01/", "type": "Documentation", "duration": "3-4 weeks" },
+      { "title": "Flask Mega-Tutorial by Miguel Grinberg", "url": "https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world", "type": "Tutorial", "duration": "6-8 weeks" }
+    ],
+    "MongoDB": [
+      { "title": "MongoDB University", "url": "https://learn.mongodb.com/", "type": "Course", "duration": "3-4 weeks" }
+    ],
+    "PostgreSQL": [
+      { "title": "PostgreSQL Official Tutorial", "url": "https://www.postgresql.org/docs/current/tutorial.html", "type": "Documentation", "duration": "2-3 weeks" }
+    ],
+    "Data Visualization (Matplotlib/Seaborn)": [
+      { "title": "Matplotlib Official Tutorials", "url": "https://matplotlib.org/stable/tutorials/index.html", "type": "Documentation", "duration": "2-3 weeks" }
+    ],
+    "React Native / Flutter": [
+      { "title": "Flutter Official Codelabs", "url": "https://docs.flutter.dev/codelabs", "type": "Tutorial", "duration": "4-6 weeks" },
+      { "title": "React Native Official Docs", "url": "https://reactnative.dev/docs/getting-started", "type": "Documentation", "duration": "4-6 weeks" }
+    ],
+    "Firebase": [
+      { "title": "Firebase Official Docs", "url": "https://firebase.google.com/docs", "type": "Documentation", "duration": "2-3 weeks" }
+    ],
+    "Tailwind CSS": [
+      { "title": "Tailwind CSS Official Docs", "url": "https://tailwindcss.com/docs", "type": "Documentation", "duration": "1-2 weeks" }
+    ],
+    "Next.js": [
+      { "title": "Next.js Official Learn Course", "url": "https://nextjs.org/learn", "type": "Course", "duration": "2-3 weeks" }
+    ],
+    "Networking (TCP/IP, DNS, HTTP)": [
+      { "title": "Computer Networking by Kurose & Ross (Free Lectures)", "url": "https://gaia.cs.umass.edu/kurose_ross/lectures.php", "type": "Lectures", "duration": "8-10 weeks" }
+    ],
+    "Security Fundamentals (CIA Triad)": [
+      { "title": "CompTIA Security+ Study", "url": "https://www.comptia.org/certifications/security", "type": "Certification", "duration": "8-12 weeks" }
+    ],
+    "Penetration Testing": [
+      { "title": "TryHackMe", "url": "https://tryhackme.com/", "type": "Platform", "duration": "Ongoing" },
+      { "title": "Hack The Box", "url": "https://www.hackthebox.com/", "type": "Platform", "duration": "Ongoing" }
+    ],
+    "User Research": [
+      { "title": "Google UX Design Certificate (Coursera)", "url": "https://www.coursera.org/professional-certificates/google-ux-design", "type": "Course", "duration": "6 months" }
+    ],
+    "Wireframing & Prototyping": [
+      { "title": "Figma Prototyping Tutorial", "url": "https://help.figma.com/hc/en-us/articles/360040314193-Guide-to-prototyping-in-Figma", "type": "Tutorial", "duration": "1-2 weeks" }
+    ],
+    "Visual Design": [
+      { "title": "Refactoring UI", "url": "https://www.refactoringui.com/", "type": "Book", "duration": "2-3 weeks" }
+    ],
+    "CI/CD (Jenkins/GitHub Actions)": [
+      { "title": "GitHub Actions Documentation", "url": "https://docs.github.com/en/actions", "type": "Documentation", "duration": "2-3 weeks" }
+    ],
+    "Terraform": [
+      { "title": "HashiCorp Learn Terraform", "url": "https://developer.hashicorp.com/terraform/tutorials", "type": "Tutorial", "duration": "4-6 weeks" }
+    ],
+    "Authentication (JWT/OAuth)": [
+      { "title": "Auth0 Developer Docs", "url": "https://auth0.com/docs", "type": "Documentation", "duration": "1-2 weeks" }
+    ],
+    "MLOps": [
+      { "title": "Made With ML MLOps Course", "url": "https://madewithml.com/", "type": "Course", "duration": "6-8 weeks" }
+    ],
+    "NLP": [
+      { "title": "Hugging Face NLP Course", "url": "https://huggingface.co/learn/nlp-course", "type": "Course", "duration": "4-6 weeks" }
+    ],
+    "Feature Engineering": [
+      { "title": "Kaggle Feature Engineering Course", "url": "https://www.kaggle.com/learn/feature-engineering", "type": "Course", "duration": "4 hours" }
+    ],
+    "Testing (Jest)": [
+      { "title": "Jest Official Documentation", "url": "https://jestjs.io/docs/getting-started", "type": "Documentation", "duration": "1-2 weeks" }
+    ],
+    "Webpack/Vite": [
+      { "title": "Vite Official Guide", "url": "https://vite.dev/guide/", "type": "Documentation", "duration": "1 week" }
+    ],
+    "Redis": [
+      { "title": "Redis University", "url": "https://university.redis.io/", "type": "Course", "duration": "2-3 weeks" }
+    ],
+    "Monitoring (Prometheus/Grafana)": [
+      { "title": "Grafana Tutorials", "url": "https://grafana.com/tutorials/", "type": "Tutorial", "duration": "2-3 weeks" }
+    ],
+    "Ansible": [
+      { "title": "Ansible Official Getting Started", "url": "https://docs.ansible.com/ansible/latest/getting_started/index.html", "type": "Documentation", "duration": "3-4 weeks" }
+    ],
+    "Design Systems": [
+      { "title": "Design Systems 101 (NNGroup)", "url": "https://www.nngroup.com/articles/design-systems-101/", "type": "Article", "duration": "1-2 weeks" }
+    ],
+    "Cryptography": [
+      { "title": "Crypto 101 (Free Book)", "url": "https://www.crypto101.io/", "type": "Book", "duration": "4-6 weeks" }
+    ],
+    "Microservices Architecture": [
+      { "title": "Microservices.io Patterns", "url": "https://microservices.io/patterns/index.html", "type": "Guide", "duration": "Ongoing" }
+    ],
+    "Model Optimization": [
+      { "title": "TensorFlow Model Optimization Toolkit", "url": "https://www.tensorflow.org/model_optimization", "type": "Documentation", "duration": "2-3 weeks" }
+    ],
+    "Data Pipelines": [
+      { "title": "Apache Airflow Tutorial", "url": "https://airflow.apache.org/docs/apache-airflow/stable/tutorial/index.html", "type": "Documentation", "duration": "3-4 weeks" }
+    ]
+  }
+}

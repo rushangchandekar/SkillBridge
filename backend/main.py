@@ -57,7 +57,7 @@ if GEMINI_KEY and GEMINI_KEY != 'your_gemini_api_key_here':
         _genai.configure(api_key=GEMINI_KEY)
         model = _genai.GenerativeModel('gemini-2.0-flash')
         genai = _genai
-        print("[✓] Gemini AI model loaded successfully")
+        print("[SUCCESS] Gemini AI model loaded successfully")
     except Exception as e:
         print(f"[!] Gemini AI initialization failed: {e}")
 else:
@@ -347,7 +347,7 @@ def analyze_skills():
     insights = get_ai_insights(user_skills, career_title, gap)
 
     # Save to history
-    save_analysis(career_id, career['title'], gap['match_percentage'], {
+    save_analysis(career_id, career_title, gap['match_percentage'], {
         'analysis': gap,
         'roadmap': roadmap,
         'insights': insights

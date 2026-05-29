@@ -127,51 +127,182 @@
 
 .hero-visual-3d {
   position: relative;
-  width: 300px;
-  height: 300px;
-  transform-style: preserve-3d;
-  animation: sceneRotate 20s linear infinite;
+  width: 480px;
+  height: 480px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-@keyframes sceneRotate {
-  from { transform: rotateY(0deg) rotateX(10deg); }
-  to { transform: rotateY(360deg) rotateX(10deg); }
-}
-
-.hero-circle-3d {
+/* Concentric Orbital Rings System (Flat Concentric Circles per Reference Image) */
+.orbital-rings-system {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate3d(-50%, -50%, 0);
-  width: 200px;
-  height: 200px;
-  transform-style: preserve-3d;
+  transform: translate(-50%, -50%);
+  width: 440px;
+  height: 440px;
+  pointer-events: none;
 }
 
-.circle-inner {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: radial-gradient(circle, var(--accent-mint-glow), transparent 70%);
-  border: 1px solid var(--accent-mint);
-  box-shadow: 0 0 50px var(--accent-mint-dim);
-  opacity: 0.6;
-}
-
-.circle-pulse {
+.orbital-core {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--accent-mint) 20%, var(--accent-teal) 70%, transparent 100%);
+  box-shadow: 0 0 35px var(--accent-mint), 0 0 70px var(--accent-teal);
+  opacity: 0.85;
+  animation: corePulse 4s ease-in-out infinite;
+}
+
+@keyframes corePulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    filter: brightness(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.15);
+    filter: brightness(1.3);
+  }
+}
+
+.orbital-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+}
+
+.ring-line {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  border: 2px solid var(--accent-mint);
-  animation: pulse3d 3s ease-out infinite;
+  border: 1px dashed rgba(167, 255, 131, 0.15);
+  box-shadow: 0 0 10px rgba(167, 255, 131, 0.02);
 }
 
-@keyframes pulse3d {
-  0% { transform: scale(1); opacity: 0.8; }
-  100% { transform: scale(1.5); opacity: 0; }
+.ring-sparkle {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-mint);
+  filter: drop-shadow(0 0 8px var(--accent-mint));
+}
+
+.ring-sparkle svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Ring 1 - Outer Ring: large size, clockwise slow rotation */
+.ring-outer {
+  width: 100%;
+  height: 100%;
+  animation: rotateClockwise 35s linear infinite;
+}
+
+.ring-outer .ring-line {
+  border-color: rgba(167, 255, 131, 0.2);
+  box-shadow: 0 0 15px rgba(167, 255, 131, 0.04);
+}
+
+.sparkle-1-a {
+  width: 24px;
+  height: 24px;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--accent-mint);
+  filter: drop-shadow(0 0 10px var(--accent-mint));
+}
+
+.sparkle-1-b {
+  width: 16px;
+  height: 16px;
+  bottom: 15%;
+  right: 15%;
+  transform: translate(50%, 50%);
+  color: var(--accent-mint);
+  filter: drop-shadow(0 0 6px var(--accent-mint));
+  opacity: 0.8;
+}
+
+/* Ring 2 - Middle Ring: medium size, counter-clockwise moderate rotation */
+.ring-middle {
+  width: 72%;
+  height: 72%;
+  animation: rotateCounterClockwise 28s linear infinite;
+}
+
+.ring-middle .ring-line {
+  border-color: rgba(255, 157, 46, 0.2);
+  box-shadow: 0 0 15px rgba(255, 157, 46, 0.04);
+}
+
+.sparkle-2-a {
+  width: 18px;
+  height: 18px;
+  top: 50%;
+  right: 0;
+  transform: translate(50%, -50%);
+  color: var(--accent-orange);
+  filter: drop-shadow(0 0 8px var(--accent-orange));
+}
+
+.sparkle-2-b {
+  width: 12px;
+  height: 12px;
+  bottom: 25%;
+  left: 10%;
+  transform: translate(-50%, 50%);
+  color: var(--accent-orange);
+  filter: drop-shadow(0 0 5px var(--accent-orange));
+  opacity: 0.7;
+}
+
+/* Ring 3 - Inner Ring: small size, clockwise fast rotation */
+.ring-inner {
+  width: 45%;
+  height: 45%;
+  animation: rotateClockwise 20s linear infinite;
+}
+
+.ring-inner .ring-line {
+  border-color: rgba(78, 205, 196, 0.25);
+  box-shadow: 0 0 15px rgba(78, 205, 196, 0.05);
+}
+
+.sparkle-3 {
+  width: 14px;
+  height: 14px;
+  top: 15%;
+  left: 15%;
+  transform: translate(-50%, -50%);
+  color: var(--accent-teal);
+  filter: drop-shadow(0 0 6px var(--accent-teal));
+}
+
+@keyframes rotateClockwise {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes rotateCounterClockwise {
+  from {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
 }
 
 .floating-card {
@@ -186,13 +317,13 @@
   box-shadow: var(--shadow-card);
   backdrop-filter: blur(12px);
   width: 220px;
-  transform-style: preserve-3d;
   transition: all var(--transition-base);
+  z-index: 2;
 }
 
 .floating-card:hover {
   border-color: var(--accent-mint);
-  box-shadow: 0 0 30px var(--accent-mint-dim);
+  box-shadow: 0 0 30px var(--accent-mint-dim), var(--shadow-elevated);
   background: var(--bg-secondary);
 }
 
@@ -207,21 +338,80 @@
 }
 
 .card-1 {
-  top: 0;
-  left: 50%;
-  transform: translate3d(-50%, -100px, 100px);
+  top: 8%;
+  left: -20px;
+  animation: floatCard1 6s ease-in-out infinite;
+}
+
+.card-1:hover {
+  transform: scale(1.05);
 }
 
 .card-2 {
-  top: 40%;
-  right: -50px;
-  transform: translate3d(0, 0, 50px) rotateY(-20deg);
+  top: 48%;
+  right: -20px;
+  transform: translateY(-50%);
+  animation: floatCard2 7s ease-in-out infinite;
+}
+
+.card-2:hover {
+  transform: translateY(-50%) scale(1.05);
 }
 
 .card-3 {
-  bottom: 0;
-  left: 50%;
-  transform: translate3d(-50%, 100px, 80px);
+  bottom: 8%;
+  left: -20px;
+  animation: floatCard3 5s ease-in-out infinite;
+}
+
+.card-3:hover {
+  transform: scale(1.05);
+}
+
+@keyframes floatCard1 {
+  0%,
+  100% {
+    margin-top: 0;
+  }
+  50% {
+    margin-top: -15px;
+  }
+}
+
+@keyframes floatCard2 {
+  0%,
+  100% {
+    margin-top: 0;
+  }
+  50% {
+    margin-top: -12px;
+  }
+}
+
+@keyframes floatCard3 {
+  0%,
+  100% {
+    margin-top: 0;
+  }
+  50% {
+    margin-top: -15px;
+  }
+}
+
+/* Premium interactive class for hovering & tactile clicks */
+.active-interactive {
+  cursor: pointer;
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast), margin-top var(--transition-slow);
+}
+
+.active-interactive:hover {
+  border-color: var(--accent-mint) !important;
+  box-shadow: 0 0 30px var(--accent-mint-dim), var(--shadow-elevated) !important;
+  background-color: var(--bg-card-hover) !important;
+}
+
+.active-interactive:active {
+  transform: scale(0.98) !important;
 }
 
 /* How It Works */
@@ -395,7 +585,6 @@
 /* Tech Stack Section */
 .tech-stack {
   padding: var(--sp-20) 0;
-  border-top: 1px solid var(--border-subtle);
 }
 
 .tech-grid {
@@ -468,9 +657,17 @@
   border-radius: 50%;
 }
 
-.dot.red { background: #ff5f56; }
-.dot.yellow { background: #ffbd2e; }
-.dot.green { background: #27c93f; }
+.dot.red {
+  background: #ff5f56;
+}
+
+.dot.yellow {
+  background: #ffbd2e;
+}
+
+.dot.green {
+  background: #27c93f;
+}
 
 .info-card-floating code {
   color: var(--accent-mint);
@@ -521,11 +718,68 @@
 }
 
 @media (max-width: 768px) {
-  .hero-title { font-size: var(--fs-4xl); }
-  .hero-stats { gap: var(--sp-6); }
-  .hero-actions { flex-direction: column; align-items: center; }
-  .hero-visual-3d { width: 250px; height: 250px; }
-  .floating-card { width: 180px; padding: var(--sp-3); }
-  .steps-grid { flex-direction: column; }
-  .step-connector { transform: rotate(90deg); }
+  .hero-title {
+    font-size: var(--fs-4xl);
+  }
+
+  .hero-stats {
+    gap: var(--sp-6);
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-visual-3d {
+    width: 280px;
+    height: 280px;
+  }
+
+  .orbital-rings-system {
+    width: 240px;
+    height: 240px;
+  }
+
+  .floating-card {
+    width: 160px;
+    padding: var(--sp-2) var(--sp-3);
+    font-size: var(--fs-xs);
+  }
+
+  .floating-card .card-icon {
+    font-size: var(--fs-lg);
+  }
+
+  .floating-card .card-label {
+    font-size: var(--fs-xs);
+  }
+
+  .card-1 {
+    top: 5%;
+    left: -10px;
+  }
+
+  .card-2 {
+    top: 50%;
+    right: -10px;
+    transform: translateY(-50%);
+  }
+
+  .card-2:hover {
+    transform: translateY(-50%) scale(1.05);
+  }
+
+  .card-3 {
+    bottom: 5%;
+    left: -10px;
+  }
+
+  .steps-grid {
+    flex-direction: column;
+  }
+
+  .step-connector {
+    transform: rotate(90deg);
+  }
 }

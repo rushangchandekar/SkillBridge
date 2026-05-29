@@ -99,9 +99,47 @@ export default function Hero({ onStart }) {
                 <div className="card-icon">🚀</div>
                 <div className="card-label">Career Roadmap</div>
               </div>
-              <div className="hero-circle-3d">
-                <div className="circle-inner"></div>
-                <div className="circle-pulse"></div>
+              
+              {/* Concentric Orbital Rings System (Revolving flat circles with SVG sparkles per reference image) */}
+              <div className="orbital-rings-system">
+                {/* Ring 1 - Outer Ring */}
+                <div className="orbital-ring ring-outer">
+                  <div className="ring-line"></div>
+                  <div className="ring-sparkle sparkle-1-a">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 0L14.8 9.2L24 12L14.8 14.8L12 24L9.2 14.8L0 12L9.2 9.2L12 0Z"/>
+                    </svg>
+                  </div>
+                  <div className="ring-sparkle sparkle-1-b">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 0L14.8 9.2L24 12L14.8 14.8L12 24L9.2 14.8L0 12L9.2 9.2L12 0Z"/>
+                    </svg>
+                  </div>
+                </div>
+                {/* Ring 2 - Middle Ring */}
+                <div className="orbital-ring ring-middle">
+                  <div className="ring-line"></div>
+                  <div className="ring-sparkle sparkle-2-a">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 0L14.8 9.2L24 12L14.8 14.8L12 24L9.2 14.8L0 12L9.2 9.2L12 0Z"/>
+                    </svg>
+                  </div>
+                  <div className="ring-sparkle sparkle-2-b">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 0L14.8 9.2L24 12L14.8 14.8L12 24L9.2 14.8L0 12L9.2 9.2L12 0Z"/>
+                    </svg>
+                  </div>
+                </div>
+                {/* Ring 3 - Inner Ring */}
+                <div className="orbital-ring ring-inner">
+                  <div className="ring-line"></div>
+                  <div className="ring-sparkle sparkle-3">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 0L14.8 9.2L24 12L14.8 14.8L12 24L9.2 14.8L0 12L9.2 9.2L12 0Z"/>
+                    </svg>
+                  </div>
+                </div>
+                <div className="orbital-core"></div>
               </div>
             </div>
           </div>
@@ -193,7 +231,7 @@ export default function Hero({ onStart }) {
                 <div className="progress-bar">
                   <div className="progress-fill" style={{ width: '42.6%' }}></div>
                 </div>
-                <span className="stat-source:">Source: Graduate Skill Index</span>
+                <span className="stat-source">Source: Graduate Skill Index</span>
               </div>
               <div className="info-card-floating">
                 <div className="card-header">
@@ -211,7 +249,7 @@ export default function Hero({ onStart }) {
       </section>
 
       {/* Tech Stack Section */}
-      <section className="tech-stack">
+      <section className="tech-stack" style={{ borderTop: 'none', border: 'none' }}>
         <div className="section-container">
           <div className="tech-stack-header" style={{ textAlign: 'center', marginBottom: 'var(--sp-12)' }}>
             <div className="hero-badge">
